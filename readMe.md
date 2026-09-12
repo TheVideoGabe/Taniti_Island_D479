@@ -44,6 +44,7 @@
     <li>After running "npm create vite@latest" we will have a whole new folder with the project files we can cd into</li>
     <li>We can git init (to start git versioning on that specific folder)</li>
     <li>We need to add a .gitignore file and add the common files and folders</li>
+    <li>We can create it using the "touch .gitignore command" (touch filename.filetype[index, css, jsx, etc])</li>
     
     ```text
     # logs
@@ -71,13 +72,10 @@
     *.sln
     *.sw?
     ```
-* **Next List Item:** This item stays in the list!
-
-
     <li>git add . or * (To start staging files for the repo) And if we accidentally added something that is not supposed to go to the repo we can use "git rm -r --cached ." or delete the .git file if we put it in the wrong place</li>
     <li>git commit -m "Initial commit"</li>
     <li>git branch -M main (this changes the default name of the branch "Master" to main)</li>
-    <li>git remote add origin git@github.com:username/repository.git</li>
+    <li>git remote add origin git@github.com:username/repository.git (git repo link)</li>
     <li>git push -u origin master (the -u links the local repo to the remote when pushing changes)</li>
     </ul>
     </details>
