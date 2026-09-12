@@ -20,7 +20,7 @@
     - [x] Create an interactive prototype using figma (which requires creating master components, instances of master, variants for pseudo interactions, and navigational logic when clicking as well as possible animations)
 
 
-- [ ] **Set up Boilerplate & Scaffolding (Git Clone or push existing code "git init")**
+- [x] **Set up Boilerplate & Scaffolding (Git Clone or push existing code "git init")**
     <details>
       <summary><strong>If we Git Clone (Fresh repo for a new project)</strong><span style="color: green; font-weight:bold;"> Click To Expand!</span></summary>
     <ul>
@@ -77,13 +77,14 @@
     <li>git remote add origin git@github.com:username/repository.git (git repo link)</li>
     <li>At this point we are going to get an error because we haven't fethed the remote commits. So we need to use the command <strong>"git pull --rebase origin main"</strong></li>
     <li>if there are files out of sync we can run <strong>"git fetch --all" & "git reset --hard origin/main"</strong></li>
-    <li>And sync repos with git pull</li>
+    <li>And sync repos with "git pull origin main"</li>
+    <li>To remove any deleted files we can use "rm --cache filename.eg" (This is only needed if the readMe file glitches)</li>
     <li>To confirm the commit history we can use the command <strong>"git log > commit_history.txt"</strong> and check out the history (If this doesn't work we can force a commit but it will undo the git history which is not good practice)</li>
     <li><strong>git push -u origin main</strong> (the -u links the local repo to the remote when pushing changes)</li>
     </ul>
     </details>
 
-- [ ] **Set Up Develop Branch So We Can Make Changes Without Worrying About Main**
+- [x] **Set Up Develop Branch So We Can Make Changes Without Worrying About Main**
   - We can use git branch develop
   - Then use git checkout develop to switch over to that branch
   - When making changes we want to merge the develop branch to main and then also to gh-pages
@@ -94,12 +95,25 @@
       - git commit -m "A message that describes the changes/additions"
       - git push to the remote repo 
 
-- [ ] **Set Up gh-pages Branch To Isolate The dist Files**
+- [x] **Set Up gh-pages Branch To Isolate The dist Files**
+    - Create the gh-pages branch and go to it using **git branch && git checkout gh-pages**
     - After making sure that the gh-pages branch is up to date we can run the bundler to get a dist folder
-    - which is npm installed correctly should be "npm run build" giving all our files default names according to the vite config.
+    - which if npm installed correctly should be "npm run build" giving all our files default names according to the vite config.
     - You can always preview what the dist folder looks like using the vite command "npm run preview"
-    - Then we can | git add dist -f && git commit -m "Deployment commit" |
-    - git subtree push --prefix dist origin gh-pages (Push olnly the commits from the dist folder into the branch)
+    - If we don't have a Vite config file we can create one using **"touch vite.config.js"**
+    - Inside we add:
+    ```text
+    import { defineConfig } from 'vite'
+
+    // Replace with the exact repository name from github link.. Only the forward slashes and repo name
+    export default defineConfig({
+    base: '/your-github-repo-name/',
+    // ... rest of your config
+    })
+    ```
+
+    - Then we can use **git add dist -f && git commit -m "Github pages commit"**
+    - Then use **git subtree push --prefix dist origin gh-pages** (Push only the commits from the dist folder into the branch)
       - If the one above doesn't work then we kind of need to reset the gh-pages branch using "git push origin `git subtree split --prefix dist main`:gh-pages --force"
       - or "git push origin --delete gh-pages" (to delete the branch) then "git subtree push --prefix dist origin gh-pages" again to rebuild it
     - git checkout develop (go back to our development environment)
