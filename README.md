@@ -1,6 +1,8 @@
 <h1 align="center">Island Of Taniti - D479 WGU</h1>
 
-<h1 align="center">To-Do List</h1>
+<h1 align="center">Project Set Up Pipeline</h1>
+
+<h5 align="center">Workflow: Checkout Develop -> Commit & Push ->Checkout Main -> Merge Develop, Commit & Push -> Checkout gh-pages/dist -> Merge Main, Commit & Push custom Dist commands</h5>
 
 - **Project Scope**
     - [x] Create a **timeline** for how long it would take to deliver parts of the project (research, personas, wireframes, prototypes, and minimum viable product / MVP)
@@ -83,7 +85,14 @@
     <li><strong>git push -u origin main</strong> (the -u links the local repo to the remote when pushing changes)</li>
     </ul>
     </details>
-
+- To make the Vite server easier to use and avoid the vscode browser from opening we can add the open chrome setting to the node package script. (These are useful if we installed vite by itself and we have to add the scripts by hand so we don't rely on npx)
+    ```text
+    "scripts": {
+    "dev": "vite --open chrome",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+    ```
 - [x] **Set Up Develop Branch So We Can Make Changes Without Worrying About Main**
   - We can use git branch develop
   - Then use git checkout develop to switch over to that branch
@@ -115,25 +124,30 @@
 
     - Then we can use **git add dist -f && git commit -m "Github pages commit"**
     - Then use **git subtree push --prefix dist origin gh-pages** (Push only the commits from the dist folder into the branch)
+      - If we previously merged to main and then merged main to gh-pages then we might get a nano/vim terminal to manually submit the commit message. We can write one and then save and quit using **":wq"** or cancel the commit using **"git merge --abort"**
       - If the one above doesn't work then we kind of need to reset the gh-pages branch using "git push origin `git subtree split --prefix dist main`:gh-pages --force"
       - or "git push origin --delete gh-pages" (to delete the branch) then "git subtree push --prefix dist origin gh-pages" again to rebuild it
     - git checkout develop (go back to our development environment)
 
 - **Analyzing The Figma Designs & Building The Project:**
-    - [ ] Download all asset images used in the design.
-    - [ ] Collect all of the design system colors, spacing, font families & sizes, semantic colors/toasts, badges, icons and if possible add them to the Read Me so It's easier to copy and pase in the same location. (the snip tool "SHIFT + WINDOWS KEY + S" has a built in color picker to get the hexadecimal value of a color on screen if we don't have a value for a color)
-    - [ ] Reset the CSS to make the design cross compatible between browsers and also easier to work with and also include any variables if needed
+    - [x] Download all asset images used in the design.
+      - Remember that the currently checked out branch will have their files displayed in the explorer folder. So we can add images to the develop branch in src/assets and import them properly for bundling. Stage them and commit them. Because if we checkout before doing so the files won't transfer over and it could cause glitches.
+    - [x] Collect all of the design system colors, spacing, font families & sizes, semantic colors/toasts, badges, icons and if possible add them to the Read Me so It's easier to copy and pase in the same location. (the snip tool "SHIFT + WINDOWS KEY + S" has a built in color picker to get the hexadecimal value of a color on screen if we don't have a value for a color)
+    - [x] Reset the CSS to make the design cross compatible between browsers and also easier to work with and also include any variables if needed
       - Reset The CSS default properties with "box-sizing: border-box;", and adding "margin: 0;" & "padding: 0;"
       - Make Variables of anything that will be re-used in the design, custom uility classes (think tailwind) and or semantic rules and sizes we are going to use for colors, fonts, etc. 
-    - [ ] Create the HTML components to outline the nested elements and build up the sections according to the design. (nav, containers, sections, forms, cards, & footer) 
+    - [x] Create the HTML components to outline the nested elements and build up the sections according to the design. (nav, containers, sections, forms, cards, & footer) 
       - We can work on our website with hot reload using vite running the command "npm run dev"
-      - We can bundle our website with the vite command "npm run build"
+      - We can bundle our website with the vite command "npm run build" (Remember to update vite config)
       - And preview the bundled website with "npm run preview"
-      - [ ] Break down a design into layout sections and components. (we can iterate faster in sites like codepen to not see as much clutter code)
-      - [ ] Organize and comment out the  site sections and components in HTML
-      - [ ] Plan and execute how CSS FlexBox and CSS Grid will take up space in the containers we defined and how we can position them to fit the design. (we can visualize the layout by using temporary boxes and lorem ipsum text that take out the space of the HTML elements).
-      - [ ] Give them the proper properties (color, texture, font, alignment, borders/corners, spacing, background, opacity, shadows, Form inputs and semantic colors, images, links buttons, etc).
+      - We can use the web dev tools F12 in chrome to find HTML elements faster and shift values around with the visualizing tools "styles" & "computed". You can find a value and change it using the up and down arrows and holding alt to shift by 1 or .1,  shift to move by 10's and control to move by 100's.
+        - Another gotcha is that the chrome web dev preview sometimes looks like it has a broken gap but when you load the website on the actual devices it doesn't show up.
+      - [x] Break down a design into layout sections and components. (we can iterate faster in sites like codepen to not see as much clutter code)
+      - [x] Organize and comment out the  site sections and components in HTML
+      - [x] Plan and execute how CSS FlexBox and CSS Grid will take up space in the containers we defined and how we can position them to fit the design. (we can visualize the layout by using temporary boxes and lorem ipsum text that take out the space of the HTML elements).
+      - [x] Give them the proper properties (color, texture, font, alignment, borders/corners, spacing, background, opacity, shadows, Form inputs and semantic colors, images, links buttons, etc).
     - [ ] Fill the HTML layout sections & components with the downloaded images, brand assets, icons, etc.
+    - [ ] Make media queries for the average breaking point screen sizes (Min-width: >= after this use this CSS & max-width: <= before this and smaller use this CSS)
 - **END**
 ---
  
@@ -173,9 +187,18 @@
   - The Semantic accent color 5: Warning/Alerts `#000000` <span style="color:#000000">Example</span>.
   - The Semantic accent color 6: Disabled `#000000` <span style="color:#000000">Example</span>.
   <br>
-- **Font Sizes:**
-  - Nav Bar: 45px
-  - Title: 160px
-  - Sub-Headings under titles: 32px
-  - Cards and body text: 42px
-  - FAQ & Form: 21px
+- **Font Sizes & Families: (The Font Size on Figma is the same in Pixels)**
+  - Nav Bar: font-size: 45px; = font-family: Roboto;
+  - Title: font-size: 160px; = font-family: Roboto;
+  - Sub-Headings under titles: font-size: 32pxpx = font-family: Roboto
+  - Cards and body text: font-size: 42px; = font-family: Roboto;
+  - Food & Activities Sections: font-size: 42px; = font-family: Roboto Condensed Extrabold Italic;
+  - FAQ & Form: font-size: 21px; = font-family: 
+
+---
+
+<h1 align="center">Project Specific Reminders</h1>
+
+- [x] Fix Sticky Nav bar
+- [x] Fix text sizes (font-size, weight, spacing, family)
+- [ ] Fix Input form size on larger screens
