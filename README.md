@@ -87,6 +87,7 @@
 - [x] **Set Up Develop Branch So We Can Make Changes Without Worrying About Main**
   - We can use git branch develop
   - Then use git checkout develop to switch over to that branch
+  - If we want to push any changes to this branch for the first time then we need to use **"git push --set-upstream origin develop"**
   - When making changes we want to merge the develop branch to main and then also to gh-pages
     - Using the general **git** **workflow**:
       - git status
