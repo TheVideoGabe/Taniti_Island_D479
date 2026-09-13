@@ -14,8 +14,8 @@
     <header class="site-header">
       <nav class="navbar navbar-expand-lg taniti-nav">
         <div class="container-fluid nav-inner">
-          <a class="brand-mark" href="#home" aria-label="Taniti home">
-            <span>🌴</span>
+          <a class="navbar-brand" href="#home" aria-label="Taniti home">
+            <span><img src="/assets/logo.png" width="50" height="50" alt="Logo island image"></span>
           </a>
 
           <button class="navbar-toggler" type="button"
@@ -26,7 +26,7 @@
 
           <div class="collapse navbar-collapse" id="mainNav">
             <ul class="navbar-nav ms-auto align-items-lg-center">
-              <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+              <li class="nav-item" id="home-nav"><a class="nav-link" href="#home">Home</a></li>
               <li class="nav-item"><a class="nav-link" href="#activities">Activities</a></li>
               <li class="nav-item"><a class="nav-link" href="#food">Food</a></li>
               <li class="nav-item"><a class="nav-link" href="#visit">Plan Your Visit</a></li>
@@ -40,30 +40,30 @@
     <main>
       <section id="home" class="hero-section">
         <div class="hero-image-wrap">
-          <img src="https://picsum.photos/seed/taniti-ocean/1200/700" alt="Temporary tropical island image">
+          <img src="/assets/island-image.png" alt="Tropical island image">
           <div class="hero-title">
             <h1>TANITI</h1>
             <p>A small, tropical island in the Pacific.</p>
           </div>
-          <div class="cursor-art" aria-hidden="true">➤</div>
+          <div class="cursor-art" aria-hidden="true"><img src="/assets/mouse-finger.png" alt="Cursor image"></div>
         </div>
         
       </section>
 <!-- Information Section -->
       <section id="info" class="content-section info-section">
         <h2>INFORMATION</h2>
-        
+        <div class="card-wrapper">
         <div class="info-layout">
           <div class="intro-card">
-             <div class="hero-gold-frame" aria-hidden="true"></div>
-          <div class="intro-copy">
-            <p>
-              Taniti has an indigenous population of about 20,000.
-              Until a recent increase in tourism, most of the Tanitian economy
-              was dominated by fishing or agriculture.
-            </p>
-          </div>
-          <img src="https://picsum.photos/seed/taniti-beach/500/350" alt="Temporary Taniti beach image">
+            <div class="hero-gold-frame" aria-hidden="true"></div>
+            <div class="intro-copy">
+              <p>
+                Taniti has an indigenous population of about 20,000.
+                Until a recent increase in tourism, most of the Tanitian economy
+                was dominated by fishing or agriculture.
+              </p>
+            </div>
+            <img src="/assets/island-image-2.jpg" alt="Taniti beach image 2">
         </div>
 
         <p class="intro-text">
@@ -73,6 +73,8 @@
           active volcano.
         </p>
         </div>
+        <div class="info-background" aria-hidden="true"></div>
+        </div>
       </section>
 <!-- Activities Section -->
       <section id="activities" class="content-section activities-section">
@@ -80,9 +82,9 @@
 
         <div class="activities-layout">
           <div class="activity-images">
-            <img src="https://picsum.photos/seed/snorkeling/260/260" alt="Temporary snorkeling image">
-            <img src="https://picsum.photos/seed/boat/260/260" alt="Temporary boat image">
-            <img src="https://picsum.photos/seed/hiking/320/320" alt="Temporary hiking image">
+            <img src="/assets/snorkel.png" alt="Snorkeling image">
+            <img src="/assets/helicopter.png" alt="Helicopter image">
+            <img src="/assets/zipline.png" alt="Zipline image">
           </div>
 
           <div class="activity-copy">
@@ -106,8 +108,8 @@
           </div>
 
           <div class="food-images">
-            <img src="https://picsum.photos/seed/taniti-food/360/280" alt="Temporary food image">
-            <img src="https://picsum.photos/seed/taniti-market/360/280" alt="Temporary market image">
+            <img src="/assets/grocery-outlet.png" alt="Grocery Market image">
+            <img src="/assets/asian-food.png" alt="Asian food image">
           </div>
         </div>
       </section>
@@ -115,10 +117,10 @@
       <section id="visit" class="content-section visit-section">
         <h2>VISIT US</h2>
         <div class="visit-gallery">
-          <img src="https://picsum.photos/seed/flight/300/500" alt="Temporary travel image">
-          <img src="https://picsum.photos/seed/tropical/300/500" alt="Temporary tropical image">
-          <img src="https://picsum.photos/seed/coast/300/500" alt="Temporary coastline image">
-          <img src="https://picsum.photos/seed/sunset/300/500" alt="Temporary sunset image">
+          <img src="/assets/airplane.png" alt="travel image">
+          <img src="/assets/beach-drink.png" alt="Drink by the beach image">
+          <img src="/assets/cruise.png" alt="Cruise ship image">
+          <img src="/assets/family-beach.png" alt="Family at the beach during sunset image">
         </div>
       </section>
 <!-- FAQ Section -->
@@ -199,7 +201,7 @@
     </main>
 <!-- Footer -->
     <footer class="site-footer">
-      <a class="brand-mark" href="#home" aria-label="Taniti home"><span>🌴</span></a>
+      <a href="#home" aria-label="Taniti home"><span><img src="/assets/logo.png" width="130" height="120" alt="Logo island image"></span></a>
       <nav aria-label="Footer navigation">
         <a href="#home">Home</a>
         <a href="#activities">Activities</a>

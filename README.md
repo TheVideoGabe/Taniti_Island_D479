@@ -131,7 +131,7 @@
 
 - **Analyzing The Figma Designs & Building The Project:**
     - [x] Download all asset images used in the design.
-      - Remember that the currently checked out branch will have their files displayed in the explorer folder. So we can add images to the develop branch in src/assets and import them properly for bundling. Stage them and commit them. Because if we checkout before doing so the files won't transfer over and it could cause glitches.
+      - Remember that the currently checked out branch will have their files displayed in the explorer folder. So we can add images to the develop branch in the src/assets if we want to optimize them (this is a little bit of a hurdle) because we need to import them properly for bundling (or we can just create a public folder on the vite project root and then put the assets folder there and link images from **src="/assets/picture.png"**). And finally Stage them and commit them. Because if we checkout before doing so the files won't transfer over and it could cause glitches.
     - [x] Collect all of the design system colors, spacing, font families & sizes, semantic colors/toasts, badges, icons and if possible add them to the Read Me so It's easier to copy and pase in the same location. (the snip tool "SHIFT + WINDOWS KEY + S" has a built in color picker to get the hexadecimal value of a color on screen if we don't have a value for a color)
     - [x] Reset the CSS to make the design cross compatible between browsers and also easier to work with and also include any variables if needed
       - Reset The CSS default properties with "box-sizing: border-box;", and adding "margin: 0;" & "padding: 0;"
@@ -146,8 +146,9 @@
       - [x] Organize and comment out the  site sections and components in HTML
       - [x] Plan and execute how CSS FlexBox and CSS Grid will take up space in the containers we defined and how we can position them to fit the design. (we can visualize the layout by using temporary boxes and lorem ipsum text that take out the space of the HTML elements).
       - [x] Give them the proper properties (color, texture, font, alignment, borders/corners, spacing, background, opacity, shadows, Form inputs and semantic colors, images, links buttons, etc).
-    - [ ] Fill the HTML layout sections & components with the downloaded images, brand assets, icons, etc.
+    - [x] Fill the HTML layout sections & components with the downloaded images, brand assets, icons, etc.
     - [ ] Make media queries for the average breaking point screen sizes (Min-width: >= after this use this CSS & max-width: <= before this and smaller use this CSS)
+      - [ ] Create a new CSS file for each screen to be better organized and link it in the main JS file so we can bundle and ship correctly.
 - **END**
 ---
  
@@ -162,7 +163,7 @@
     - Tone Value 5 `#63646c` <span style="color:#63646c">Example</span>.
     - Tone Value 6 `#424248` <span style="color:#424248">Example</span>.
     - Tone Value 7 `#232327` <span style="color:#232327">Example</span>.
-  <br>
+  
   - Brand Colors:
     - Main Brand color 1 `#eef0fd` <span style="color:#eef0fd">Example</span>.
     - Main Brand color 2 `#cdd4f9` <span style="color:#cdd4f9">Example</span>.
@@ -171,7 +172,7 @@
     - Main Brand color 5 `#2f5dcc` <span style="color:#2f5dcc">Example</span>.
     - Main Brand color 6 `#1d3d8c` <span style="color:#1d3d8c">Example</span>.
     - Main Brand color 7 `#0c2050` <span style="color:#0c2050">Example</span>.
-  <br>
+
     - Complementary Contrast to Main Color 1 `#fcf0d4` <span style="color:#fcf0d4">Example</span>.
     - Complementary Contrast to Main Color 2 `#EECD61` <span style="color:#EECD61">Example</span>.
     - Complementary Contrast to Main Color 3 `#c2a64d` <span style="color:#c2a64d">Example</span>.
@@ -179,14 +180,14 @@
     - Complementary Contrast to Main Color 5 `#6e5e29` <span style="color:#6e5e29">Example</span>.
     - Complementary Contrast to Main Color 6 `#483d18` <span style="color:#483d18">Example</span>.
     - Complementary Contrast to Main Color 7 `#251f09` <span style="color:#251f09">Example</span>.
-  <br>
+
   - The Semantic accent color 1: Links `#000000` <span style="color:#000000">Example</span>.
   - The Semantic accent color 2: Calls To Actions/Buttons `#000000` <span style="color:#000000">Example</span>.
   - The Semantic accent color 3: Success `#000000` <span style="color:#000000">Example</span>.
   - The Semantic accent color 4: Error/Failed `#000000` <span style="color:#000000">Example</span>.
   - The Semantic accent color 5: Warning/Alerts `#000000` <span style="color:#000000">Example</span>.
   - The Semantic accent color 6: Disabled `#000000` <span style="color:#000000">Example</span>.
-  <br>
+
 - **Font Sizes & Families: (The Font Size on Figma is the same in Pixels)**
   - Nav Bar: font-size: 45px; = font-family: Roboto;
   - Title: font-size: 160px; = font-family: Roboto;
@@ -200,5 +201,7 @@
 <h1 align="center">Project Specific Reminders</h1>
 
 - [x] Fix Sticky Nav bar
+- [x] Fix navbar inset shadow
 - [x] Fix text sizes (font-size, weight, spacing, family)
-- [ ] Fix Input form size on larger screens
+- [x] Fix visit us image sizes to match design
+- [x] Fix Input form size on larger screens

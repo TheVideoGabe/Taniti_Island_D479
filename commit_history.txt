@@ -1,3 +1,64 @@
+commit bbf514c3c5766cc1ccc4b5b15701ed24aaf8e694
+Author: Gabriel C. <gabrielcorralcardenas@gmail.com>
+Date:   Sat Sep 12 03:56:03 2026 -0700
+
+    Updated CSS fonts & layouts
+
+commit 1e83faaf39b4f41f3e596cd1f1f836c9ac896fe6
+Author: Gabriel C. <gabrielcorralcardenas@gmail.com>
+Date:   Sat Sep 12 00:21:28 2026 -0700
+
+    updated read me
+
+commit f6d0081502a1edf2db3f8330ada7afaee76f6a84
+Author: Gabriel C. <gabrielcorralcardenas@gmail.com>
+Date:   Sat Sep 12 00:17:57 2026 -0700
+
+    updated read me and added config file to fix gh-pages
+
+commit 1fd8dd9bc79c8ffc6e5e7babf3c480f184dd6ac7
+Author: Gabriel C. <gabrielcorralcardenas@gmail.com>
+Date:   Fri Sep 11 23:44:17 2026 -0700
+
+    re-added readme file
+
+commit 6adf679dbb5940a2c0091fb9c80ec1f44432866e
+Merge: b5ee5f8 cf80766
+Author: Gabriel C. <gabrielcorralcardenas@gmail.com>
+Date:   Fri Sep 11 23:42:33 2026 -0700
+
+    removed readme files
+
+commit b5ee5f87ffbb30e8f0d5ee472c71f4424aef3cf3
+Author: Gabriel C. <gabrielcorralcardenas@gmail.com>
+Date:   Fri Sep 11 22:03:37 2026 -0700
+
+    fixed werid cached read me file issue
+
+commit cf80766064867207b7510479fc25e156d0f97a41
+Author: Gabriel C. <75913215+TheVideoGabe@users.noreply.github.com>
+Date:   Fri Sep 11 21:58:22 2026 -0700
+
+    Delete README.md
+
+commit 9f050f8c62da9c64f3b2f327ad710d58c7ce0ecb
+Author: Gabriel C. <75913215+TheVideoGabe@users.noreply.github.com>
+Date:   Fri Sep 11 21:58:13 2026 -0700
+
+    Delete readMe.md
+
+commit 51c0dc2c16349fa8f7f3d9c5449be00336c96f65
+Author: Gabriel C. <gabrielcorralcardenas@gmail.com>
+Date:   Fri Sep 11 21:51:27 2026 -0700
+
+    updated read me
+
+commit d5a699854ff7111aad751f426daa608041fa969d
+Author: Gabriel C. <gabrielcorralcardenas@gmail.com>
+Date:   Fri Sep 11 21:45:12 2026 -0700
+
+    Fixed weird readme glitch with git origin main
+
 commit 32ffd56b98c0d87d95b28b4d1e53a5cc8eab1f72
 Author: Gabriel C. <gabrielcorralcardenas@gmail.com>
 Date:   Fri Sep 11 21:32:07 2026 -0700

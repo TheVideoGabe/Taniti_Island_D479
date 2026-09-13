@@ -1,0 +1,78 @@
+/* 700px to 1000px wide: Tablet Sizes*/
+@media (min-width: 700px) and (max-width: 1000px) {
+  .site-header {
+    padding: 0;
+  }
+
+  .taniti-nav {
+    padding: 2px 12px;
+  }
+
+  .navbar-collapse {
+    padding-bottom: 8px;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px 4px;
+  }
+
+  .hero-image-wrap {
+    width: 90%;
+  }
+
+  .intro-card {
+    width: 88%;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .intro-card img {
+    width: 42%;
+    height: 90px;
+  }
+
+  .intro-card p,
+  .intro-text {
+    font-size: 11px;
+  }
+
+  .intro-text {
+    margin-top: 35px;
+  }
+
+  .content-section {
+    padding-left: 7%;
+    padding-right: 7%;
+  }
+  
+  .activities-layout,
+  .food-layout {
+    flex-direction: column;
+  }
+
+  .activity-images,
+  .activity-copy,
+  .food-copy,
+  .food-images {
+    width: 100%;
+  }
+
+  .activity-copy,
+  .food-copy {
+    font-size: 13px;
+  }
+
+  .food-images {
+    min-height: 210px;
+  }
+
+  .visit-gallery {
+    gap: 10px;
+  }
+
+  .site-footer {
+    gap: 20px;
+    padding: 8px 20px;
+  }
+}
+

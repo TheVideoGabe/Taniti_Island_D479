@@ -31,30 +31,41 @@ html {
 
 /* Overflow x hidden is best to hide the spill of the overlappedweb dividers */
 body {
-  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
   background: #b8b7b7;
   color: white;
-  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
   overflow-x: hidden;
 }
 
 .site-shell {
-  margin: 0 auto;
   background: #000;
+  margin: 0 auto;
 }
 
 .site-header {
-  top: 0;
-  z-index: 1000;
   position: sticky;
+  z-index: 1000;
+  top: 0;
 }
 
 .taniti-nav {
+  background: var(--navy);
   position: sticky;
   min-height: 44px;
   padding: 0 12px;
-  background: var(--navy);
+  box-shadow: inset 0px -11px 11px -4px rgba(0, 0, 0, 1);
   /* border-bottom: 2px solid var(--gold); */
+}
+
+.nav-item:hover, 
+.nav-item.active {
+  background: black !important; /* !important ensures it overrides any default Bootstrap styles */
+}
+
+
+#home-nav:target, #activities-nav:target, #food-nav:target, #visit-nav:target, #faq-nav:target {
+  background: black;
 }
 
 .nav-inner {
@@ -103,9 +114,8 @@ body {
 
 .hero-section {
   position: relative;
-  padding-bottom: 50px;
-  background:
-    linear-gradient(to bottom, #000 30%, #e9c65d 70%);
+  background: linear-gradient(to bottom, #000 30%, #e9c65d 70%);
+  /* padding-bottom: 50px; */
 }
 
 .hero-image-wrap {
@@ -147,8 +157,9 @@ body {
 
 .cursor-art {
   position: absolute;
-  left: 31%;
-  bottom: 9%;
+  scale: .8;
+  left: 18%;
+  bottom: -3%;
   color: white;
   font-size: clamp(50px, 9vw, 100px);
   transform: rotate(-12deg);
@@ -156,35 +167,63 @@ body {
 }
 
 .hero-gold-frame {
-  /* display: inline-block; */
   position: absolute; 
   z-index: 2000;
-  inset: -350px -400px 0 -400px;
-  height: 120px;
-  /* margin-top: -30px; */
-  background: linear-gradient(#e9c65d);
-  clip-path: polygon(0 0, 100% 0, 94% 34%, 98% 45%, 91% 52%, 96% 62%, 87% 67%, 92% 76%, 79% 70%, 73% 86%, 63% 72%, 51% 95%, 39% 72%, 27% 91%, 20% 72%, 9% 83%, 12% 63%, 3% 69%, 8% 49%, 1% 42%);
+  inset: -450px -300px 0 -300px;
+  background-image: url("/assets/Yellow-web-divider.png");
+  background-repeat: no-repeat;
+  height: 320px;
+  width: 100vw;
+  scale: 1.4 .8;
+  background-position: center;
+  background-size: cover;
 }
 
 .info-section {
-  margin-top: 50px;
   background: #000;
+  /* margin-top: 10px; */
+}
+
+.card-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  /* max-width: 1200px; */
+  /* padding: 0 20px; */
 }
 
 .intro-card {
-  position: relative;
-  z-index: 2;
   display: flex;
-  align-items: center;
-  gap: 20px;
-  width: 84%;
+  position: relative;
+  width: 100%;
   min-height: 145px;
-  margin: 60px auto 0;
-  padding: 10px 20px;
+  background-position: center;
+  align-items: center;
+  z-index: 2;
   border-radius: 14px;
-  background: var(--navy);
-  border: 2px solid #bd9a2e;
+  gap: 20px;
+  margin: 60px auto 0;
+  outline-offset: -2px;  /* negative border width + outline width */
   box-shadow: 5px 6px 5px rgba(0,0,0,.55);
+  background-image: url("/assets/moire-pattern.png");
+  padding: 40px 40px;
+  background-repeat: no-repeat;
+  /* background: var(--navy); */
+  /* border: 2px 6px 8px 9px solid #bd9a2e; */
+  /* border-right: 8px solid #bd9a2e; */
+  /* border-bottom: 8px solid #bd9a2e; */
+  /* overflow: hidden; */
+}
+
+.info-background {
+  position: absolute;
+  height: 61.5%;
+  background-color: #bd9a2e;
+  border-radius: 14px;
+  width: 100%;        /* Matches the exact size of the wrapper */
+  z-index: 0;         /* Sits behind .intro-card */
+  top: 3px;          /* Pushes the background down slightly */
+  left: 12px;         /* Shifts the background right slightly */
 }
 
 .intro-copy {
@@ -200,10 +239,10 @@ body {
 }
 
 .intro-card img {
-  width: 40%;
-  height: 110px;
-  object-fit: cover;
+  width: auto;
+  height: 100%;
   border-radius: 24px;
+  /* object-fit: cover; */
 }
 
 .intro-text {
@@ -255,8 +294,8 @@ body {
 .activity-images img:first-child {
   width: 60%;
   justify-self: center;
-  /* align-self: end; */
   margin-top: -50px;
+  /* align-self: end; */
 }
 
 .activity-images img:nth-child(2) {
@@ -303,6 +342,13 @@ body {
   align-items: center;
 }
 
+.food-images img:first-child {
+  justify-self: center;
+  align-items: start;
+  /* gap: 30px; */
+  /* width: 60%; */
+}
+
 .food-copy {
   flex: 1;
   font-family: Roboto Condensed, comic sans ms, sans-serif;
@@ -313,23 +359,31 @@ body {
 }
 
 .food-images {
-  width: 38%;
+  width: 35%;
   position: relative;
+  display: flex;
+  flex-direction: column;
   min-height: 250px;
 }
 
 .food-images img {
-  width: 65%;
-  display: block;
-  object-fit: cover;
+  position: absolute;
+  width: 55%;
   aspect-ratio: 1.25;
-  margin-left: auto;
+  left: -52px;
+  bottom: -132px;
+  /* display: block; */
+  /* object-fit: cover; */
+  /* margin-left: auto; */
 }
 
 .food-images img + img {
-  width: 72%;
-  margin-top: -20px;
-  margin-right: auto;
+  position: absolute;
+  left: 250px;
+  bottom: 110px;
+  /* width: 72%; */
+  /* margin-top: -20px; */
+  /* margin-right: auto; */
 }
 
 .visit-section {
@@ -341,14 +395,19 @@ body {
 .visit-gallery {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 22px;
-  align-items: center;
+  padding-top: 35px;
+  justify-items: center;
+  /* gap: 10px; */
+  /* align-items: center; */
 }
 
 .visit-gallery img {
-  width: 100%;
-  aspect-ratio: .58;
+  width: 60%;
+  aspect-ratio: .38;
   object-fit: cover;
+  /* display: block; */
+  /* height: auto; */
+  /* margin: 0 auto; */
 }
 
 .faq-section {
@@ -446,6 +505,7 @@ body {
   min-height: 58px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 40px;
   padding: 8px 35px;
   background: var(--navy);
@@ -454,7 +514,7 @@ body {
 .site-footer nav {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
+  gap: 34px;
 }
 
 .site-footer nav a {
@@ -466,131 +526,4 @@ body {
 .site-footer nav a:hover {
   color: var(--gold);
 }
-
-@media (max-width: 700px) {
-  .site-header {
-    padding: 0;
-  }
-
-  .taniti-nav {
-    padding: 2px 12px;
-  }
-
-  .navbar-collapse {
-    padding-bottom: 8px;
-  }
-
-  .navbar-nav .nav-link {
-    padding: 10px 4px;
-  }
-
-  .hero-image-wrap {
-    width: 90%;
-  }
-
-  .intro-card {
-    width: 88%;
-    gap: 10px;
-    padding: 10px;
-  }
-
-  .intro-card img {
-    width: 42%;
-    height: 90px;
-  }
-
-  .intro-card p,
-  .intro-text {
-    font-size: 11px;
-  }
-
-  .intro-text {
-    margin-top: 35px;
-  }
-
-  .content-section {
-    padding-left: 7%;
-    padding-right: 7%;
-  }
-  
-  .activities-layout,
-  .food-layout {
-    flex-direction: column;
-  }
-
-  .activity-images,
-  .activity-copy,
-  .food-copy,
-  .food-images {
-    width: 100%;
-  }
-
-  .activity-copy,
-  .food-copy {
-    font-size: 13px;
-  }
-
-  .food-images {
-    min-height: 210px;
-  }
-
-  .visit-gallery {
-    gap: 10px;
-  }
-
-  .site-footer {
-    gap: 20px;
-    padding: 8px 20px;
-  }
-}
-
-/*  */
-
- @media (max-width: 430px) {
-  .hero-title h1 {
-    font-size: 36px;
-    letter-spacing: .28em;
-  }
-
-  .hero-title p {
-    font-size: 8px;
-  }
-
-  .cursor-art {
-    font-size: 55px;
-  }
-
-  .intro-card {
-    min-height: 120px;
-  }
-
-  .intro-card img {
-    height: 72px;
-    border-radius: 18px;
-  }
-
-  .intro-card p,
-  .intro-text {
-    font-size: 9px;
-  }
-
-  .content-section h2 {
-    letter-spacing: .27em;
-  }
-
-  .activity-copy,
-  .food-copy {
-    font-size: 12px;
-  }
-
-  .site-footer {
-    align-items: flex-start;
-  }
-
-  .site-footer nav {
-    gap: 8px;
-  }
-}
-
-
 

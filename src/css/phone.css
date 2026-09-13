@@ -1,0 +1,46 @@
+ /* 430px wide or less: Phone sizes */
+ @media (max-width: 430px) {
+  .hero-title h1 {
+    font-size: 36px;
+    letter-spacing: .28em;
+  }
+
+  .hero-title p {
+    font-size: 8px;
+  }
+
+  .cursor-art {
+    font-size: 55px;
+  }
+
+  .intro-card {
+    min-height: 120px;
+  }
+
+  .intro-card img {
+    height: 72px;
+    border-radius: 18px;
+  }
+
+  .intro-card p,
+  .intro-text {
+    font-size: 9px;
+  }
+
+  .content-section h2 {
+    letter-spacing: .27em;
+  }
+
+  .activity-copy,
+  .food-copy {
+    font-size: 12px;
+  }
+
+  .site-footer {
+    align-items: flex-start;
+  }
+
+  .site-footer nav {
+    gap: 8px;
+  }
+}
