@@ -147,8 +147,8 @@
       - [x] Plan and execute how CSS FlexBox and CSS Grid will take up space in the containers we defined and how we can position them to fit the design. (we can visualize the layout by using temporary boxes and lorem ipsum text that take out the space of the HTML elements).
       - [x] Give them the proper properties (color, texture, font, alignment, borders/corners, spacing, background, opacity, shadows, Form inputs and semantic colors, images, links buttons, etc).
     - [x] Fill the HTML layout sections & components with the downloaded images, brand assets, icons, etc.
-    - [ ] Make media queries for the average breaking point screen sizes (Min-width: >= after this use this CSS & max-width: <= before this and smaller use this CSS)
-      - [ ] Create a new CSS file for each screen to be better organized and link it in the main JS file so we can bundle and ship correctly.
+    - [x] Make media queries for the average breaking point screen sizes (Min-width: >= after this use this CSS & max-width: <= before this and smaller use this CSS)
+      - [x] Create a new CSS file for each screen to be better organized and link it in the main JS file so we can bundle and ship correctly.
 - **END**
 ---
  
@@ -205,3 +205,6 @@
 - [x] Fix text sizes (font-size, weight, spacing, family)
 - [x] Fix visit us image sizes to match design
 - [x] Fix Input form size on larger screens
+- [x] Updated website to match newer Figma design
+- [x] Added responsive mobile design
+- [x] Fixed font sizes and layout on laptop screen size

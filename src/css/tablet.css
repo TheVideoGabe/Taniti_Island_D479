@@ -33,7 +33,7 @@
 
   .intro-card p,
   .intro-text {
-    font-size: 11px;
+    font-size: clamp(14px, 1.8vw, 18px);
   }
 
   .intro-text {
@@ -45,25 +45,35 @@
     padding-right: 7%;
   }
   
-  .activities-layout,
-  .food-layout {
+  .activities-layout {
     flex-direction: column;
   }
 
   .activity-images,
-  .activity-copy,
-  .food-copy,
-  .food-images {
+  .activity-copy {
     width: 100%;
   }
 
-  .activity-copy,
-  .food-copy {
-    font-size: 13px;
+  .food-layout,
+  .accommodations-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
   }
 
-  .food-images {
-    min-height: 210px;
+  .food-images,
+  .accommodations-images {
+    width: min(100%, 560px);
+    margin-inline: auto;
+  }
+
+  .activity-copy,
+  .food-copy,
+  .accommodations-copy {
+    font-size: clamp(16px, 2vw, 21px);
+  }
+
+  .transportation-note {
+    font-size: clamp(16px, 2vw, 21px);
   }
 
   .visit-gallery {

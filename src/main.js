@@ -1,5 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import Collapse from 'bootstrap/js/dist/collapse';
 import './style.css';
 import './css/phone.css';
 import './css/tablet.css';
@@ -16,11 +16,30 @@ document.querySelector('#contactForm').addEventListener('submit', (event) => {
   event.target.reset();
 });
 
-document.querySelectorAll('.navbar-nav .nav-link').forEach(link => {
-  link.addEventListener('click', () => {
+document.querySelectorAll('.navbar-nav .nav-link, .navbar-brand[href="#home"], .site-footer a[href="#home"]').forEach(link => {
+  link.addEventListener('click', event => {
     const menu = document.querySelector('#mainNav');
-    if (menu.classList.contains('show')) {
-      bootstrap.Collapse.getOrCreateInstance(menu).hide();
+    const hash = link.getAttribute('href');
+    const target = document.querySelector(hash);
+    if (!target) return;
+
+    const menuIsOpen = link.matches('.navbar-nav .nav-link') && menu.classList.contains('show');
+    const mobileHomeLink = window.matchMedia('(max-width: 991.98px)').matches && hash === '#home';
+    if (!menuIsOpen && !mobileHomeLink) return;
+
+    event.preventDefault();
+
+    const scrollToTarget = () => {
+      history.pushState(null, '', hash);
+      const top = mobileHomeLink ? 0 : target.getBoundingClientRect().top + window.scrollY;
+      window.scrollTo({ top, behavior: 'smooth' });
+    };
+
+    if (menuIsOpen) {
+      menu.addEventListener('hidden.bs.collapse', scrollToTarget, { once: true });
+      Collapse.getOrCreateInstance(menu, { toggle: false }).hide();
+    } else {
+      scrollToTarget();
     }
   });
 });
@@ -44,6 +63,9 @@ const observerOptions = {
 };
 
 const observer = new IntersectionObserver((entries) => {
+  // Mobile uses the sticky header edge as its active-section boundary below.
+  if (window.matchMedia('(max-width: 991.98px)').matches) return;
+
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       const id = entry.target.getAttribute('id');
@@ -60,9 +82,34 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, observerOptions);
 
+// On phones, highlight the section whose top has reached the sticky nav.
+// This keeps the open hamburger menu in sync with the section title the user
+// has just scrolled to, instead of highlighting a section farther down screen.
+const mobileNavQuery = window.matchMedia('(max-width: 991.98px)');
+const updateMobileActiveLink = () => {
+  if (!mobileNavQuery.matches) return;
+
+  const brand = document.querySelector('.site-header .navbar-brand');
+  const navBoundary = window.scrollY + (brand?.getBoundingClientRect().bottom ?? 50) + 8;
+  const sections = [...document.querySelectorAll('.navbar-nav a[href^="#"]')]
+    .map(link => ({ link, section: document.querySelector(link.getAttribute('href')) }))
+    .filter(item => item.section)
+    .filter(item => item.section.getBoundingClientRect().top + window.scrollY <= navBoundary);
+  const activeLink = sections.at(-1)?.link;
+
+  document.querySelectorAll('.navbar-nav .nav-item').forEach(item => item.classList.remove('active'));
+  activeLink?.closest('.nav-item')?.classList.add('active');
+};
+
+window.addEventListener('scroll', updateMobileActiveLink, { passive: true });
+window.addEventListener('resize', updateMobileActiveLink);
+window.addEventListener('hashchange', updateMobileActiveLink);
+mobileNavQuery.addEventListener('change', updateMobileActiveLink);
+updateMobileActiveLink();
+
 // Track all sections that match your nav links
 document.querySelectorAll('section[id], div[id]').forEach(section => {
-  if (['home', 'activities', 'food', 'visit', 'faq'].includes(section.id)) {
+  if (['home', 'activities', 'food', 'transportation', 'accommodations', 'faq'].includes(section.id)) {
     observer.observe(section);
   }
 });

@@ -64,7 +64,7 @@ body {
 }
 
 
-#home-nav:target, #activities-nav:target, #food-nav:target, #visit-nav:target, #faq-nav:target {
+#home-nav:target, #activities-nav:target, #food-nav:target, #transportation-nav:target, #accommodations-nav:target, #faq-nav:target {
   background: black;
 }
 
@@ -101,10 +101,14 @@ body {
 
 .navbar-toggler {
   border: 0;
+  border-radius: 0;
+  background: transparent;
   box-shadow: none !important;
 }
 
-.navbar-toggler:focus {
+.navbar-toggler:focus,
+.navbar-toggler:focus-visible {
+  outline: none;
   box-shadow: none !important;
 }
 
@@ -233,9 +237,6 @@ body {
 .intro-card p,
 .intro-text {
   margin: 0;
-  font-size: 42px;
-  line-height: -5%;
-  font-family: Roboto Condensed, comic sans ms, sans-serif;
 }
 
 .intro-card img {
@@ -259,8 +260,8 @@ body {
   text-align: center;
   font-family: Staatliches, comic sans ms, sans-serif;
   font-weight: 900;
-  font-size: clamp(38px, 7vw, 160px);
-  letter-spacing: 55%;
+  font-size: clamp(38px, 6vw, 120px);
+  letter-spacing: .12em;
   background: linear-gradient(#a9d0f6, #3e9ce3);
   -webkit-background-clip: text;
   background-clip: text;
@@ -315,21 +316,28 @@ body {
 
 .activity-copy {
   width: 52%;
+}
+
+.intro-card p,
+.intro-text,
+.activity-copy,
+.section-note,
+.food-copy,
+.accommodations-copy,
+.transportation-note {
   font-family: Roboto Condensed, comic sans ms, sans-serif;
   font-style: italic;
   font-weight: 700;
-  font-size: 42px;
-  line-height: 150%;
+  font-size: clamp(16px, 1.8vw, 42px);
+  line-height: 1.5;
 }
 
 .activity-copy p + p {
-  margin-top: 25px;
+  margin-top: clamp(14px, 1.2vw, 25px);
 }
 
 .section-note {
   margin-top: 20px;
-  font-size: 42px;
-  font-family: Roboto, comic sans ms, sans-serif;
 }
 
 .food-section {
@@ -337,58 +345,62 @@ body {
 }
 
 .food-layout {
-  display: flex;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, .8fr);
+  gap: clamp(24px, 4vw, 64px);
   align-items: center;
 }
 
-.food-images img:first-child {
-  justify-self: center;
-  align-items: start;
-  /* gap: 30px; */
-  /* width: 60%; */
-}
-
 .food-copy {
-  flex: 1;
-  font-family: Roboto Condensed, comic sans ms, sans-serif;
-  font-style: italic;
-  font-weight: 700;
-  font-size: 42px;
-  line-height: 185%;
+  min-width: 0;
 }
 
 .food-images {
-  width: 35%;
   position: relative;
-  display: flex;
-  flex-direction: column;
-  min-height: 250px;
+  width: 100%;
+  min-width: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-rows: auto auto;
+  align-items: start;
+  gap: 0;
 }
 
 .food-images img {
-  position: absolute;
-  width: 55%;
+  position: relative;
+  display: block;
+  width: 100%;
   aspect-ratio: 1.25;
-  left: -52px;
-  bottom: -132px;
-  /* display: block; */
-  /* object-fit: cover; */
-  /* margin-left: auto; */
+  object-fit: cover;
 }
 
-.food-images img + img {
-  position: absolute;
-  left: 250px;
-  bottom: 110px;
-  /* width: 72%; */
-  /* margin-top: -20px; */
-  /* margin-right: auto; */
+.food-images img:first-child {
+  grid-column: 1;
+  grid-row: 2;
 }
 
-.visit-section {
+.food-images img:last-child {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+@media (max-width: 699px) {
+  .food-layout,
+  .accommodations-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+  }
+
+  .food-images,
+  .accommodations-images {
+    width: min(100%, 560px);
+    margin-inline: auto;
+  }
+}
+
+.transportation-section {
   padding-top: 75px;
-  padding-bottom: 85px;
+  padding-bottom: 38px;
   background: linear-gradient(#1f3f86, #eac558 90%);
 }
 
@@ -408,6 +420,62 @@ body {
   /* display: block; */
   /* height: auto; */
   /* margin: 0 auto; */
+}
+
+.transportation-note {
+  margin: 35px 0 0;
+}
+
+.accommodations-section {
+  padding-top: 65px;
+  padding-bottom: 75px;
+  background: #eac558;
+  color: white;
+}
+
+.accommodations-layout {
+  display: grid;
+  grid-template-columns: minmax(0, .8fr) minmax(0, 1.35fr);
+  gap: clamp(24px, 4vw, 64px);
+  align-items: stretch;
+}
+
+.accommodations-images {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  align-items: start;
+  gap: 0;
+}
+
+.accommodations-images img {
+  min-width: 0;
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.25;
+  object-fit: cover;
+}
+
+.accommodations-images img:first-child {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.accommodations-images img:last-child {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.accommodations-copy {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.accommodations-copy p + p {
+  margin-top: clamp(12px, 1.2vw, 20px);
 }
 
 .faq-section {
@@ -450,7 +518,7 @@ body {
 }
 
 .contact-form {
-  width: 90%;
+  width: 100%;
   /* max-width: 650px; */
   margin: 0 auto;
   padding: 12px;

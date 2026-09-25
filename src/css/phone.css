@@ -1,46 +1,219 @@
- /* 430px wide or less: Phone sizes */
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    padding: 8px 0 12px;
+  }
+
+  .navbar-nav {
+    align-items: stretch !important;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 10px 12px;
+    font-size: clamp(16px, 2.4vw, 21px);
+  }
+
+  .navbar-nav .nav-item:hover,
+  .navbar-nav .nav-item.active {
+    background: transparent !important;
+  }
+
+  .navbar-nav .nav-item.active .nav-link {
+    color: var(--gold);
+    border-left: 3px solid var(--gold);
+  }
+
+  .navbar-nav .nav-link:hover,
+  .navbar-nav .nav-link:focus-visible {
+    color: var(--gold);
+  }
+
+  .navbar-toggler {
+    width: auto;
+    height: auto;
+    padding: .25rem .75rem;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    outline: none;
+    box-shadow: none !important;
+  }
+
+  .navbar-toggler:focus,
+  .navbar-toggler:focus-visible {
+    outline: none;
+    box-shadow: none !important;
+  }
+}
+
+@media (max-width: 699px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    overscroll-behavior: none;
+  }
+
+  body {
+    background: #000;
+  }
+
+  .hero-gold-frame {
+    inset: auto;
+    top: -184px;
+    left: 50%;
+    width: calc(100vw + 48px);
+    height: 82px;
+    scale: 1;
+    transform: translateX(-50%);
+    background-size: 100% 100%;
+    background-position: center;
+  }
+
+  .content-section {
+    padding: 66px 6% 24px;
+  }
+
+  .content-section h2 {
+    margin-bottom: 18px;
+    font-size: clamp(30px, 8.2vw, 40px);
+    letter-spacing: .08em;
+  }
+
+  .activities-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .activity-images {
+    width: 100%;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .activity-images img,
+  .activity-images img:first-child,
+  .activity-images img:nth-child(2),
+  .activity-images img:last-child {
+    grid-column: auto;
+    width: 100%;
+    margin: 0;
+    justify-self: stretch;
+  }
+
+  .intro-card {
+    min-height: 0;
+    margin-top: 36px;
+    gap: 12px;
+    padding: 16px;
+  }
+
+  .intro-card img {
+    width: 38%;
+    height: auto;
+    aspect-ratio: 1.35;
+    object-fit: cover;
+    border-radius: 12px;
+  }
+
+  .intro-text {
+    width: 100%;
+    margin: 36px auto 0;
+  }
+
+  .activity-copy,
+  .food-copy,
+  .accommodations-copy,
+  .transportation-note,
+  .section-note,
+  .intro-card p,
+  .intro-text {
+    font-size: 14px;
+    line-height: 1.45;
+  }
+
+  .activity-copy,
+  .food-copy,
+  .accommodations-copy {
+    width: 100%;
+  }
+
+  .activity-copy p + p {
+    margin-top: 14px;
+  }
+
+  .section-note {
+    margin-top: 18px;
+  }
+
+  .site-footer {
+    min-height: 0;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 12px;
+    padding: 10px 12px;
+  }
+
+  .site-footer > a img {
+    width: 42px;
+    height: auto;
+  }
+
+  .site-footer nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    flex: 1;
+    gap: 4px 8px;
+  }
+
+  .site-footer nav a {
+    font-size: 14px;
+    line-height: 1.25;
+  }
+}
+
+/* 430px wide or less: Phone sizes */
  @media (max-width: 430px) {
+  .food-layout,
+  .accommodations-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .food-images,
+  .accommodations-images {
+    width: 100%;
+    margin-inline: auto;
+  }
+
   .hero-title h1 {
     font-size: 36px;
     letter-spacing: .28em;
   }
 
   .hero-title p {
-    font-size: 8px;
+    font-size: clamp(10px, 2.8vw, 12px);
   }
 
   .cursor-art {
-    font-size: 55px;
+    left: 32%;
+    bottom: 18%;
   }
 
-  .intro-card {
-    min-height: 120px;
+  .cursor-art img {
+    width: clamp(48px, 14vw, 58px);
+    height: auto;
+    object-fit: contain;
   }
 
-  .intro-card img {
-    height: 72px;
-    border-radius: 18px;
+  .accommodations-layout {
+    grid-template-columns: 1fr;
+    gap: 18px;
   }
 
-  .intro-card p,
-  .intro-text {
-    font-size: 9px;
+  .accommodations-images {
+    gap: 0;
   }
 
-  .content-section h2 {
-    letter-spacing: .27em;
-  }
-
-  .activity-copy,
-  .food-copy {
-    font-size: 12px;
-  }
-
-  .site-footer {
-    align-items: flex-start;
-  }
-
-  .site-footer nav {
-    gap: 8px;
-  }
 }
